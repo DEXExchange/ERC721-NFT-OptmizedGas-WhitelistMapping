@@ -170,10 +170,10 @@ contract BoredAsteroidApocalypseClubGenesis is ERC721, Ownable {
   }
 
   function withdraw() public onlyOwner {
-    // This will pay NASA's NCAS 15% of the initial sale.
-    // You can remove this if you want, or keep it in to support HashLips and his channel.
+    // This will pay NCAS 15% of the initial sale.
+    // 15% of the BAAC Genesis mint ETH revenues allocates this support to NASA's NCAS Community College.
     // =============================================================================
-    (bool hs, ) = payable(PlaceCharityWalletAddressHere).call{value: address(this).balance * 15 / 100}("");
+    (bool hs, ) = payable(EnterCharityWalletAddressHere).call{value: address(this).balance * 15 / 100}("");
     require(hs);
     // =============================================================================
 
