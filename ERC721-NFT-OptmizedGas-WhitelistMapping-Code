@@ -60,7 +60,7 @@ contract BoredAsteroidApocalypseClubGenesis is ERC721, Ownable {
   mapping(address => bool) public whitelisted;
   uint256 public maxPresaleMintAmount = 2;
 
-  constructor() ERC721("NAME", "SYMBOL") {
+  constructor() ERC721("BAAC Genesis", "BAACG") {
     setHiddenMetadataUri("ipfs://__CID__/hidden.json");
   }
 
