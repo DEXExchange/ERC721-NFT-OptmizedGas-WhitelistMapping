@@ -38,8 +38,9 @@ pragma solidity >=0.7.0 <0.9.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-contract BoredAsteroidApocalypseClubGenesis is ERC721, Ownable {
+contract BoredAsteroidApocalypseClubGenesis is ERC721, Ownable, ReentrancyGuard {
   using Strings for uint256;
   using Counters for Counters.Counter;
 
@@ -169,7 +170,7 @@ contract BoredAsteroidApocalypseClubGenesis is ERC721, Ownable {
     paused = _state;
   }
 
-  function withdraw() public onlyOwner {
+  function withdraw() public onlyOwner nonReentrant {
     // This will pay NCAS 15% of the initial sale.
     // 15% of the BAAC Genesis mint ETH revenues allocates this support to NASA's NCAS Community College.
     // =============================================================================
